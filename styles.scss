@@ -1,0 +1,91 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+
+/* CSS Basic Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+}
+
+/* CSS Variables */
+:root {
+  --bg: #f8f8f8;
+  --text: #333333;
+  --base-font: -apple-system, system-ui, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Open Sans', 'Oswald', 'Helvetica Neue', Arial, sans-serif;
+  --brand: #0052cc;
+}
+
+/* Body */
+body {
+  background: var(--bg);
+  font-size: var(--text);
+  font-family: var(--base-font);
+}
+
+/* Hamburger Icon */
+.hamburger {
+  cursor: pointer;
+  height: 30px;
+  margin: 5px auto;
+  position: relative;
+  width: 30px;
+
+  span,
+  span:before,
+  span:after {
+    content: '';
+    cursor: pointer;
+    background: var(--brand);
+    border-radius: 1px;
+    display: block;
+    height: 4px;
+    position: absolute;
+    width: 30px;
+    transition: all 0.4s ease-in-out;
+  }
+
+  span {
+    top: 0;
+    display: block;
+    &:before {
+      top: 10px;
+    }
+    &:after {
+      top: 20px;
+    }
+  }
+
+  &--active {
+    span:before,
+    span:after {
+      top: 10px;
+      right: 0;
+    }
+
+    span {
+      background: transparent;
+      transform: rotate(45deg);
+      &:after {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+}
+
+/* Use only if you needed... */
+/* Center Div */
+.layout {
+  display: flex;
+  height: 100vh;
+  flex-flow: column nowrap;
+  &--center {
+    justify-content: center;
+    align-items: center;
+  }
+}
